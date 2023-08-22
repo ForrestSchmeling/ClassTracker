@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:global="clr-namespace:ClassTracker"
+    x:Class="ClassTracker.Views.TermPage">
+
+
+    <NavigationPage.TitleView>
+        <Label x:Name="PageTitle" Style="{StaticResource PageTitle}" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+
+        <StackLayout>
+            <StackLayout>
+                <Label 
+                    x:Name="TermDateRange"
+                    Style="{StaticResource dateRange}"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand">
+                <ListView
+                    x:Name="CoursesList"
+                    HasUnevenRows="True" 
+                    ItemsSource="{Binding Source= {x:Static global:PublicClass.Courses}}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Button
+                                        Text="{Binding Title}"
+                                        Style="{StaticResource listItem}"
+                                        Clicked="Course_Clicked"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <Button 
+                    Text="Add Course"
+                    Style="{StaticResource Button}"
+                    Clicked="AddCourse_Clicked" />
+                <Button 
+                    Text="Edit Term"
+                    Style="{StaticResource Button}"
+                    Clicked="EditTerm_Clicked" />
+                <Button 
+                    Text="Delete Term"
+                    Style="{StaticResource Button}"
+                    Clicked="DeleteTerm_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

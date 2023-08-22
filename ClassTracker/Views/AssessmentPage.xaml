@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ClassTracker.Views.AssessmentPage">
+    <NavigationPage.TitleView>
+        <Label x:Name="PageTitle" Style="{StaticResource PageTitle}" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand">
+                <Label 
+                    x:Name="AssessmentDateRange"
+                    Style="{StaticResource dateRange}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Type" HorizontalOptions="StartAndExpand" Margin="20,0,0,0" FontAttributes="Bold"/>
+                    <Label x:Name="TypeSelection" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Notifications Enabled:" HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
+                    <Label x:Name="notificationsEnabled" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <Button 
+                        Text="Edit Assessment"
+                        Style="{StaticResource Button}"
+                        Clicked="EditAssessment_Clicked" />
+                <Button 
+                        x:Name="DeleteButton" 
+                        Style="{StaticResource Button}"
+                        Text="Delete" 
+                        Clicked="DeleteButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
+

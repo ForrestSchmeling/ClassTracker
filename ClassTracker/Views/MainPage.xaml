@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:global="clr-namespace:ClassTracker"
+             x:Class="ClassTracker.MainPage">
+
+    <NavigationPage.TitleView>
+        <Label Style="{StaticResource PageTitle}" Text="WGU Class Tracker"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView 
+                x:Name="TermsList" 
+                HasUnevenRows="True" 
+                ItemsSource="{Binding Source= {x:Static global:PublicClass.Terms}}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell ClassId="{Binding Id}">
+                            <StackLayout>
+                                <Button 
+                                    Text="{Binding Title}"
+                                    Style="{StaticResource listItem}"
+                                    Clicked="Term_Clicked"
+                                />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout VerticalOptions="End">
+                <Button
+                    Text="Add Term"
+                    Style="{StaticResource Button}"
+                    Clicked="AddTerm_Clicked" />
+            </StackLayout>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
